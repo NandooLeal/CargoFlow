@@ -45,11 +45,17 @@ public class Main{
 
             case 2:
                 System.out.println("Lista de motoristas selecionada.");
+                
+                if (motoristas.isEmpty()){
+                    System.out.println("Nenhum motorista cadastrado. ");
 
-                for ( int i = 0; i < motoristas.size(); i++){
-                motoristas.get(i).exibirDados();
+                } else {
 
-                }
+                    for ( int i = 0; i < motoristas.size(); i++){
+                        motoristas.get(i).exibirDados();
+                    }
+
+                }    
                 break;
 
             case 0:
