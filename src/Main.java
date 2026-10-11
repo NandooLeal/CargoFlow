@@ -25,6 +25,7 @@ public class Main{
            opcao = scanner.nextInt();        
         
            switch (opcao) {
+
             case 1:
                 System.out.println("Cadastro de motorista selecionado.");
                 scanner.nextLine();
@@ -32,16 +33,30 @@ public class Main{
                 String nome = scanner.nextLine();
                 System.out.print("CPF: ");
                 String cpf = scanner.nextLine();
-                System.out.print("CNH: ");
-                String cnh = scanner.nextLine();
-                System.out.print("Telefone: ");
-                String telefone = scanner.nextLine();
+                
+                boolean cpfExiste = false;
+                    for ( int i = 0; i < motoristas.size(); i++){
+                        if (cpf.equals(motoristas.get(i).getCpf())){                          
+                            cpfExiste = true;
+                            break;
+                        }
+                    }    
+                        if (!cpfExiste){
+                            System.out.print("CNH: ");
+                            String cnh = scanner.nextLine();
 
-                Motorista motorista = new Motorista(nome, cpf, cnh, telefone);
-                motoristas.add(motorista);
+                            System.out.print("Telefone: ");
+                            String telefone = scanner.nextLine();
 
-                System.out.println("\nMotorista cadastro com sucesso!");
-                motorista.exibirDados();
+                            Motorista motorista = new Motorista(nome, cpf, cnh, telefone);
+                            motoristas.add(motorista);
+
+                            System.out.println("Motorista cadastrado com sucesso! ");
+                            motorista.exibirDados();
+                        } else {
+                            System.out.println("CPF já cadastrado no sistema! ");
+                        }
+
 
                 break;
 
