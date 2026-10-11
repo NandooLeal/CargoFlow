@@ -14,6 +14,12 @@ public class Motorista {
        this.telefone = telefone;
     }
 
+    public String getCpf(){
+
+        return cpf;
+
+    }
+
     public void exibirDados() {
         System.out.println("Nome: " + nome);
         System.out.println("CPF: " + cpf);

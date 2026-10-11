@@ -17,6 +17,7 @@ public class Main{
            System.out.println("========================");
            System.out.println("1 - Cadastrar motorista ");
            System.out.println("2 - Listar motoristas ");
+           System.out.println("3 - Buscar motorista por CPF ");
            System.out.println("0 - Sair");
            System.out.print("Escolha uma opção: ");   
                   
@@ -56,6 +57,31 @@ public class Main{
                     }
 
                 }    
+                break;
+
+            case 3:
+                System.out.println("Busca de motorista por CPF. ");
+                scanner.nextLine();
+                
+                System.out.println("Digite o CPF que deseja buscar : ");
+                String cpfBusca = scanner.nextLine();
+
+                boolean encontrado = false;   
+
+                    for ( int i = 0; i < motoristas.size(); i++){
+
+                        if (cpfBusca.equals(motoristas.get(i).getCpf())){
+                            motoristas.get(i).exibirDados();
+                            encontrado = true;
+                        }
+
+                    } 
+                        if (!encontrado) {
+                            System.out.println("Motorista não encontrado. ");
+                        } 
+                           
+                
+                
                 break;
 
             case 0:
