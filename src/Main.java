@@ -18,6 +18,7 @@ public class Main{
            System.out.println("1 - Cadastrar motorista ");
            System.out.println("2 - Listar motoristas ");
            System.out.println("3 - Buscar motorista por CPF ");
+           System.out.println("4 - Remover motorista por CPF ");
            System.out.println("0 - Sair");
            System.out.print("Escolha uma opção: ");   
                   
@@ -83,6 +84,31 @@ public class Main{
                 
                 
                 break;
+            
+            case 4: 
+                System.out.println("Digite o CPF do Motorista que deseja remover: ");
+                scanner.nextLine();
+
+                String cpfRemover = scanner.nextLine();
+
+                boolean removido = false;
+
+                        for ( int i = 0; i < motoristas.size(); i++){
+                            if (cpfRemover.equals(motoristas.get(i).getCpf())){
+                            motoristas.remove(i);
+                            removido = true;
+                            System.out.println("Motorista removido com sucesso! ");   
+                            break;
+                        }
+                    }
+
+
+                        if (!removido){
+                            System.out.println("Motorista não encontrado. ");
+                        }                        
+                break;
+
+
 
             case 0:
                 System.out.println("Encerrando o CargoFlow...");
